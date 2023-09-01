@@ -1,5 +1,7 @@
 package pie.empie.photos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.validation.constraints.NotEmpty;
 
 public class Photo {
@@ -8,6 +10,11 @@ public class Photo {
 
     @NotEmpty
     private String fileName;
+
+    private String contentType;
+
+    @JsonIgnore
+    private byte[] data;
 
     public Photo() {
     }
@@ -19,6 +26,22 @@ public class Photo {
 
     // Raw Data
 
+
+    public String getContentType() {
+        return contentType;
+    }
+
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
+
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
+    }
 
     public String getId() {
         return id;
